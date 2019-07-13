@@ -26,7 +26,7 @@ function Tab(object) {
   //CREATE ELEMENTS
   const tab = document.createElement("div");
   //FILL IN CONTENT
-  tab.textContent = object; //yo works
+  tab.textContent = object;
   //STYLE ELEMENTS
   tab.classList.add("tab");
 
