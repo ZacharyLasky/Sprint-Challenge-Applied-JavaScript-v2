@@ -23,10 +23,11 @@ const cardsContainer = document.querySelector(".cards-container");
 axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(response => {
-    const categories = Object.keys(response.data.articles);
+    const categories = Object.values(response.data.articles);
     categories.forEach(category => {
-      categories.forEach(article => {
+      category.forEach(article => {
         cardsContainer.append(CardsComponents(article));
+        //console.log(category);
       });
     });
     //console.log("DATA:", response);
@@ -37,22 +38,21 @@ axios
 
 function CardsComponents(object) {
   //CREATE ELEMENTS
-  const card = document.createElement("div");
-  const headline = document.createElement("div"),
+  const card = document.createElement("div"),
+    headline = document.createElement("div"),
     author = document.createElement("div"),
     imgContainer = document.createElement("div"),
     img = document.createElement("img"),
     name = document.createElement("span");
   //FILL IN CONTENT
-  headline.textContent = object;
-  img.src = object;
-  name.textContent = object;
+  headline.textContent = object.headline;
+  // img.src = object.authorPhoto;
+  name.textContent = object.authorName;
   //APPEND CHILDREN
   card.append(headline, author, imgContainer, name);
   author.append(imgContainer);
   imgContainer.append(img);
   author.append(name);
-
   //STYLE ELEMENTS
   card.classList.add("card");
   author.classList.add("author");
