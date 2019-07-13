@@ -14,7 +14,8 @@ axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
     response.data.topics.forEach(topic => {
-      console.log("DATA", response);
+      topicsDiv.append(Tab(topic));
+      console.log("DATA", topic);
     });
   })
   .catch(error => {
@@ -25,7 +26,7 @@ function Tab(object) {
   //CREATE ELEMENTS
   const tab = document.createElement("div");
   //FILL IN CONTENT
-  tab.textContent = obj.topics;
+  tab.textContent = object; //yo works
   //STYLE ELEMENTS
   tab.classList.add("tab");
 
