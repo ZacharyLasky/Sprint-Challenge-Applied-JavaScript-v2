@@ -25,7 +25,9 @@ axios
   .then(response => {
     const categories = Object.keys(response.data.articles);
     categories.forEach(category => {
-      categories.forEach(article => {});
+      categories.forEach(article => {
+        cardsContainer.append(CardsComponents(article));
+      });
     });
     //console.log("DATA:", response);
   })
