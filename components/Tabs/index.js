@@ -16,3 +16,14 @@ axios
   .catch(error => {
     console.log("ERROR:", error);
   });
+
+function Tab(object) {
+  //CREATE ELEMENTS
+  const tab = document.createElement("div");
+  //FILL IN CONTENT
+  tab.textContent = obj.topics; //"yo" works
+  //STYLE ELEMENTS
+  tab.classList.add("tab");
+
+  return tab;
+}
